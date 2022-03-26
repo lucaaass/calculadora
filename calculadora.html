@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+    <style>
+   
+ 
+        .operador{
+            background-color: rgb(169, 181, 250);
+            width: 169px;
+            margin: 5px 0;
+        }
+        .operador  #try,
+        .operador  #try1,
+        .operador  #try2,
+        .operador  #try3
+        {
+            background-color: blue;
+            cursor: pointer;
+            width: 30px;
+            height:30px;
+            list-style: none;
+            color: white;
+            margin: 0 4px;
+            padding: 5px;
+        }
+        .calculoFinal {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+    
+</head>
+<body>
+
+
+    <div class="calculadora">
+        <form id="form">
+        <div class="h1">Calculadora</div>
+            <div>                
+                <div><input type="number" name="numero1"></div>
+            </div>
+        <div>
+                <ul>
+                    <li><input type="radio" name="q1" value="+">+</li>
+                    <li><input type="radio" name="q1" value="-">-</li>
+                    <li><input type="radio" name="q1" value="/">/</li>
+                    <li><input type="radio" name="q1" value="*">*</li>
+                </ul>
+                
+                
+                <div>
+                    <input type="number" name="numero2">
+                </div>
+        </div>
+            <div>
+                <div><input type="submit" id="calcular" value="Calcular"/>
+                    <input type="submit" id="climpar" value="Limpar"/></div>
+            </div>
+        </form>
+            
+        </div>
+        <div class="calculoFinal"> </div>
+
+        </div>
+<script>
+    
+    var numeroInicial = document.querySelector('input[name=calculo1]');
+    
+    var numeroFinal = document.querySelector('input[name=calculo2]');
+    
+    var form = document.querySelector('#form');
+
+    var botao = document.querySelector('#calcular');
+
+    botao.addEventListener('click', function (event) {
+       event.preventDefault();//oq é  ? para não redirecionar ou seja previnir veja so tendeu ? entendi mais nao muito bem pq nao sei pq deu erro sem
+      
+        calculo(form.q1.value);        
+    });
+
+var resultadoFinal =Number(resultadoFinal);
+
+
+function calculo(form) {
+   var numeroFinal = document.querySelector('input[name=numero2]').value;
+   var numeroInicial = document.querySelector('input[name=numero1]').value;
+   calculoFinal = document.querySelector(".calculoFinal");
+  
+    if(form == '+') {
+        resultadoFinal = Number(numeroInicial) + Number(numeroFinal);
+
+        }else if(form == '-') {
+            resultadoFinal = Number(numeroInicial) - Number(numeroFinal) ;
+        }else if(form == '*') {
+            resultadoFinal = numeroInicial * numeroFinal ;
+        }else if(form == '/'){
+            resultadoFinal = numeroInicial / numeroFinal ;
+        }
+   
+      calculoFinal.innerHTML = `O resultado final é ${resultadoFinal}`
+      
+    }
+
+    document.querySelector('button[name=limpar]')
+            .addEventListener('click',function(){
+                    resultadoFinal = [];
+                    document.querySelector('.calculoFinal').innerHTML = "";
+                    
+            })
+    
+        </script>
+</body>
+</html>
+
